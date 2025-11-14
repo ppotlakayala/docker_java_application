@@ -11,6 +11,11 @@ pipeline {
                     credentialsId: 'ef28cd2e-1610-4dea-9a5e-c7d376f0e231'
             }
         }
+        stage('Vulnerability Scan') {
+            steps {
+                sh 'dependency-check --project MyApp --scan . --format HTML --out dependency-check-report'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn clean install'
