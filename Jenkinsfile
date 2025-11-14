@@ -1,16 +1,23 @@
 pipeline {
     agent any
-        stages {
-        stage('Checkout Code') { // Clones the repository
-            steps {
-                git 'https://github.com/ppotlakayala/docker_java_application.git'
-            }
-        }
-
-        stage('Build with Maven') { // Builds the project and creates JAR/WAR
-            steps {
-                sh 'mvn clean package'
-            }
+    options {
+        skipStagesAfterUnstable()
+    }
+    stages {
+        stage('Gitcode checkout') {
+            steps {
+                git 'https://github.com/ppotlakayala/docker_java_application.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
         }
     }
 }
