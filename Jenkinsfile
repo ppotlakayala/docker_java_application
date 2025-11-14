@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Vulnerability Scan') {
             steps {
-                sh 'dependency-check --project MyApp --scan . --format HTML --out dependency-check-report'
+                sh 'dependency-check --nvdApiKey 17dc303e-74ca-4342-9c88-1f7b0e3163cc --project MyApp --scan . --format HTML --out dependency-check-report'
             }
         }
         stage('Build') {
