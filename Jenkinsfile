@@ -1,6 +1,6 @@
 pipeline {
-    agent any
-    stages {
+    agent any
+        stages {
         stage('Checkout Code') { // Clones the repository
             steps {
                 git 'https://github.com/ppotlakayala/docker_java_application.git'
