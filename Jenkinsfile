@@ -10,6 +10,7 @@ pipeline {
                     sh '''
                       git clone https://github.com/ppotlakayala/docker_java_application.git
                     '''
+                }
             }
         }
         //stage('Vulnerability Scan') {
