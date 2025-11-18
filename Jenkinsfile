@@ -4,7 +4,7 @@ pipeline {
         skipStagesAfterUnstable()
     }
     tools {
-        sonarScanner 'SonarQubeScanner' // This must match the name configured
+        sonar 'SonarQube Scanner 7.3.0.5189' // This must match the name configured
     }
     stages {
         stage('Gitcode checkout') {
@@ -32,7 +32,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 script {
-                    def scannerHome = tool 'SonarQubeScanner'
+                    def scannerHome = tool 'SonarQube Scanner 7.3.0.5189'
                     withSonarQubeEnv('SonarQubeServer') {
                         sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=docker_java_application -Dsonar.sources=."
                     }
