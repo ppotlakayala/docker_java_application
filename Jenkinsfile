@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Gitcode checkout') {
             steps {
-                git url: 'https://github.com/ppotlakayala/docker_java_application.git',
+                git url: 'git@github.com:ppotlakayala/docker_java_application.git',
                     branch: 'main',
                     credentialsId: 'Gitcred'
             }
