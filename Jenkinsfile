@@ -3,9 +3,9 @@ pipeline {
     options {
         skipStagesAfterUnstable()
     }
-    tools {
-        sonar 'SonarQube Scanner 7.3.0.5189' // This must match the name configured
-    }
+    //tools {
+        //sonar 'SonarQube Scanner 7.3.0.5189' // This must match the name configured
+    //}
     stages {
         stage('Gitcode checkout') {
             steps {
