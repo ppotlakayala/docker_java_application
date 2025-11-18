@@ -27,5 +27,11 @@ pipeline {
                 sh 'mvn test'
             }
         }
-    }
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQubeServer') {
+                    sh 'sonar-scanner -Dsonar.projectKey=docker_java_application -Dsonar.sources=.'
+                }
+            }
+        }
 }
