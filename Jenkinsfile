@@ -6,9 +6,10 @@ pipeline {
     stages {
         stage('Gitcode checkout') {
             steps {
-                git url: 'git@github.com:ppotlakayala/docker_java_application.git',
-                    branch: 'main',
-                    credentialsId: 'github-pat'
+                withCredentials([string(credentialsId: 'github-pat', variable: 'GITHUB_TOKEN')]) {
+                    sh '''
+                      git clone https://github.com/ppotlakayala/docker_java_application.git
+                    '''
             }
         }
         //stage('Vulnerability Scan') {
