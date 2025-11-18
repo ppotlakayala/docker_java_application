@@ -29,10 +29,13 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('SonarQube Analysis') {
+        stage('SonarQube analysis') {
             steps {
-                withSonarQubeEnv('SonarQubeServer') {
-                    sh 'SonarQubeScanner -Dsonar.projectKey=docker_java_application -Dsonar.sources=.'
+                script {
+                    def scannerHome = tool 'SonarQubeScanner'
+                    withSonarQubeEnv('SonarQubeServer') {
+                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=docker_java_application -Dsonar.sources=."
+                    }
                 }
             }
         }
