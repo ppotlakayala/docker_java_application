@@ -8,7 +8,7 @@ pipeline {
             steps {
                 git url: 'git@github.com:ppotlakayala/docker_java_application.git',
                     branch: 'main',
-                    credentialsId: 'Gitcred'
+                    credentialsId: 'github-pat'
             }
         }
         //stage('Vulnerability Scan') {
