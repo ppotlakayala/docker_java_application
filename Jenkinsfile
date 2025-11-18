@@ -10,6 +10,7 @@ pipeline {
         stage('Gitcode checkout') {
             steps {
                 withCredentials([string(credentialsId: 'github-pat', variable: 'GITHUB_TOKEN')]) {
+                    git clone https://github.com/ppotlakayala/docker_java_application.git
                 }
             }
         }
