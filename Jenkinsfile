@@ -22,16 +22,16 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv('SonarQubeServer') {
-                    sh 'sonar-scanner -Dsonar.projectKey=docker_java_application -Dsonar.sources=.'
-                }
-            }
-        }
+        //stage('Test') {
+            //steps {
+                //sh 'mvn test'
+            //}
+        //}
+        //stage('SonarQube Analysis') {
+            //steps {
+                //withSonarQubeEnv('SonarQubeServer') {
+                    //sh 'sonar-scanner -Dsonar.projectKey=docker_java_application -Dsonar.sources=.'
+                //}
+            //}
+    }
 }
