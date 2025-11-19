@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Gitcode checkout') {
             steps {
-                git branch: 'main'
+                git branch: 'main',
                     credentialsId: 'github-pat',
                     url: 'https://github.com/ppotlakayala/docker_java_application.git'
             }
