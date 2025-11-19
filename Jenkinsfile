@@ -9,9 +9,9 @@ pipeline {
     stages {
         stage('Gitcode checkout') {
             steps {
-                git url: 'https://github.com/ppotlakayala/docker_java_application.git',
+                git branch: 'main'
                     credentialsId: 'github-pat',
-                    branch: 'main'
+                    url: 'https://github.com/ppotlakayala/docker_java_application.git'
             }
         }
         //stage('Vulnerability Scan') {
