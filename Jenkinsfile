@@ -22,7 +22,7 @@ pipeline {
         //}
         stage('Build') {
             steps {
-                sh 'mvn compile'
+                sh 'mvn clean install sonar:sonar'
             }
         }
         stage('Test') {
